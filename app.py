@@ -1,14 +1,17 @@
 import os
-import google.generativeai as genai
+
+from google import genai
+from google.genai import types
+
 import PIL
 
-
-
-genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
-
-model = genai.GenerativeModel('gemini-1.5-flash')
+client = genai.Client(api_key=os.environ.get('GOOGLE_API_KEY'))
 
 img = PIL.Image.open("eagle.png")
 
-response = model.generate_content(["Write a blog based on this photo.", img])
+response = client.models.generate_content(
+    model='gemini-2.5-pro', 
+    contents=['Describe the image', img]
+)
+
 print(response.text)
