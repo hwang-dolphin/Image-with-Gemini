@@ -1,3 +1,3 @@
 # Image-with-Gemini
 
-Use of Gemini-1.5-flash to analize an image
+Use of gemini-2.5-pro to analize an image
